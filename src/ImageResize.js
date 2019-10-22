@@ -203,5 +203,6 @@ if (window.Quill) {
     console.log('register completed!')
     console.log('register completed!')
     console.log('register completed!')
+    console.log('register completed!')
     window.Quill.register('modules/imageResize', ImageResize);
 }
