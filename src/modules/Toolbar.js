@@ -18,6 +18,15 @@ export class Toolbar extends BaseModule {
         // Setup Buttons
         this._defineAlignments();
         this._addToolbarButtons();
+
+        console.log("Hell")
+        console.log("Hell")
+        console.log("Hell")
+        console.log("Hell")
+        console.log("Hell")
+        console.log("Hell")
+        console.log("Hell")
+        console.log("Hell")
     };
 
 	// The toolbar and its children will be destroyed when the overlay is removed
