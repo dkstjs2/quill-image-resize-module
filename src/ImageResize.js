@@ -46,8 +46,7 @@ export default class ImageResize {
 
         this.modules = [];
 
-        Toolbar._defineAlignments()
-        Toolbar.onChangedListener(function(styleName) {
+        knownModules['Toolbar'].onChangedListener(function(styleName) {
 
             console.log('Toolbar')
             console.log('Toolbar')
