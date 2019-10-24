@@ -46,24 +46,23 @@ export default class ImageResize {
 
         this.modules = [];
 
-        console.log('Toolbar')
-        console.log('Toolbar')
-        console.log('Toolbar')
-        console.log('Toolbar')
-        console.log('Toolbar')
+        knownModules.Toolbar.onChangedListener(function(styleName) {
 
-        console.log(Toolbar)
-        
-        console.log('Toolbar')
-        console.log('Toolbar')
-        console.log('Toolbar')
-        console.log('Toolbar')
-        console.log('Toolbar')
+            console.log('Toolbar')
+            console.log('Toolbar')
+            console.log('Toolbar')
+            console.log('Toolbar')
+            console.log('Toolbar')
+    
+            console.log('styleName:', styleName)
+            
+            console.log('Toolbar')
+            console.log('Toolbar')
+            console.log('Toolbar')
+            console.log('Toolbar')
+            console.log('Toolbar')
 
-        // Toolbar.onChangedListener(function(styleName) {
-
-        //     console.log('styleName:', styleName);
-        // })
+        })
     }
 
     initializeModules = () => {
