@@ -46,10 +46,10 @@ export default class ImageResize {
 
         this.modules = [];
 
-        Toolbar.onChangedListener(function(styleName) {
+        // Toolbar.onChangedListener(function(styleName) {
 
-            console.log('styleName:', styleName);
-        })
+        //     console.log('styleName:', styleName);
+        // })
     }
 
     initializeModules = () => {
