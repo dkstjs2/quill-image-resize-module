@@ -72,7 +72,7 @@ export default class ImageResize {
                     moduleInstance.onChangedListener(function(styleName) {
 
                         console.log(styleName+"2")
-                        thisObj.onChangedListener(styleName)
+                        ImageResize.onChangedListener(styleName)
                     })
                 }
 
