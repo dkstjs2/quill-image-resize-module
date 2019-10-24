@@ -1,207 +1,209 @@
-// import defaultsDeep from 'lodash/defaultsDeep';
-// import DefaultOptions from './DefaultOptions';
-// import { DisplaySize } from './modules/DisplaySize';
-// import { Toolbar } from './modules/Toolbar';
-// import { Resize } from './modules/Resize';
+import defaultsDeep from 'lodash/defaultsDeep';
+import DefaultOptions from './DefaultOptions';
+import { DisplaySize } from './modules/DisplaySize';
+import { Toolbar } from './modules/Toolbar';
+import { Resize } from './modules/Resize';
 
-// const knownModules = { DisplaySize, Toolbar, Resize };
+const knownModules = { DisplaySize, Toolbar, Resize };
 
-// /**
-//  * Custom module for quilljs to allow user to resize <img> elements
-//  * (Works on Chrome, Edge, Safari and replaces Firefox's native resize behavior)
-//  * @see https://quilljs.com/blog/building-a-custom-module/
-//  */
-// export default class ImageResize {
+/**
+ * Custom module for quilljs to allow user to resize <img> elements
+ * (Works on Chrome, Edge, Safari and replaces Firefox's native resize behavior)
+ * @see https://quilljs.com/blog/building-a-custom-module/
+ */
+export default class ImageResize {
 
-//     constructor(quill, options = {}) {
-//         // save the quill reference and options
-//         this.quill = quill;
+    constructor(quill, options = {}) {
 
-//         // Apply the options to our defaults, and stash them for later
-//         // defaultsDeep doesn't do arrays as you'd expect, so we'll need to apply the classes array from options separately
-//         let moduleClasses = false;
-//         if (options.modules) {
-//             moduleClasses = options.modules.slice();
-//         }
+        console.log("hell!")
+        console.log("hell!")
+        console.log("hell!")
+        console.log("hell!")
+        console.log("hell!")
+        console.log("hell!")
+        console.log("hell!")
+        console.log("hell!")
+        // save the quill reference and options
+        this.quill = quill;
 
-//         // Apply options to default options
-//         this.options = defaultsDeep({}, options, DefaultOptions);
+        // Apply the options to our defaults, and stash them for later
+        // defaultsDeep doesn't do arrays as you'd expect, so we'll need to apply the classes array from options separately
+        let moduleClasses = false;
+        if (options.modules) {
+            moduleClasses = options.modules.slice();
+        }
 
-//         // (see above about moduleClasses)
-//         if (moduleClasses !== false) {
-//             this.options.modules = moduleClasses;
-//         }
+        // Apply options to default options
+        this.options = defaultsDeep({}, options, DefaultOptions);
 
-//         // disable native image resizing on firefox
-//         document.execCommand('enableObjectResizing', false, 'false');
+        // (see above about moduleClasses)
+        if (moduleClasses !== false) {
+            this.options.modules = moduleClasses;
+        }
 
-//         // respond to clicks inside the editor
-//         this.quill.root.addEventListener('click', this.handleClick, false);
+        // disable native image resizing on firefox
+        document.execCommand('enableObjectResizing', false, 'false');
 
-//         this.quill.root.parentNode.style.position = this.quill.root.parentNode.style.position || 'relative';
+        // respond to clicks inside the editor
+        this.quill.root.addEventListener('click', this.handleClick, false);
 
-//         // setup modules
-//         this.moduleClasses = this.options.modules;
+        this.quill.root.parentNode.style.position = this.quill.root.parentNode.style.position || 'relative';
 
-//         this.modules = [];
-//     }
+        // setup modules
+        this.moduleClasses = this.options.modules;
 
-//     initializeModules = () => {
-//         this.removeModules();
+        this.modules = [];
+    }
 
-//         this.modules = this.moduleClasses.map(
-//             ModuleClass => new (knownModules[ModuleClass] || ModuleClass)(this),
-//         );
+    initializeModules = () => {
+        this.removeModules();
 
-//         this.modules.forEach(
-//             (module) => {
-//                 module.onCreate();
-//             },
-//         );
+        this.modules = this.moduleClasses.map(
+            ModuleClass => new (knownModules[ModuleClass] || ModuleClass)(this),
+        );
 
-//         this.onUpdate();
-//     };
+        this.modules.forEach(
+            (module) => {
+                module.onCreate();
+            },
+        );
 
-//     onUpdate = () => {
-//         this.repositionElements();
-//         this.modules.forEach(
-//             (module) => {
-//                 module.onUpdate();
-//             },
-//         );
-//     };
+        this.onUpdate();
+    };
 
-//     removeModules = () => {
-//         this.modules.forEach(
-//             (module) => {
-//                 module.onDestroy();
-//             },
-//         );
+    onUpdate = () => {
+        this.repositionElements();
+        this.modules.forEach(
+            (module) => {
+                module.onUpdate();
+            },
+        );
+    };
 
-//         this.modules = [];
-//     };
+    removeModules = () => {
+        this.modules.forEach(
+            (module) => {
+                module.onDestroy();
+            },
+        );
 
-//     handleClick = (evt) => {
-//         if (evt.target && evt.target.tagName && evt.target.tagName.toUpperCase() === 'IMG') {
-//             if (this.img === evt.target) {
-//                 // we are already focused on this image
-//                 return;
-//             }
-//             if (this.img) {
-//                 // we were just focused on another image
-//                 this.hide();
-//             }
-//             // clicked on an image inside the editor
-//             this.show(evt.target);
-//         } else if (this.img) {
-//             // clicked on a non image
-//             this.hide();
-//         }
-//     };
+        this.modules = [];
+    };
 
-//     show = (img) => {
-//         // keep track of this img element
-//         this.img = img;
+    handleClick = (evt) => {
+        if (evt.target && evt.target.tagName && evt.target.tagName.toUpperCase() === 'IMG') {
+            if (this.img === evt.target) {
+                // we are already focused on this image
+                return;
+            }
+            if (this.img) {
+                // we were just focused on another image
+                this.hide();
+            }
+            // clicked on an image inside the editor
+            this.show(evt.target);
+        } else if (this.img) {
+            // clicked on a non image
+            this.hide();
+        }
+    };
 
-//         this.showOverlay();
+    show = (img) => {
+        // keep track of this img element
+        this.img = img;
 
-//         this.initializeModules();
-//     };
+        this.showOverlay();
 
-//     showOverlay = () => {
-//         if (this.overlay) {
-//             this.hideOverlay();
-//         }
+        this.initializeModules();
+    };
 
-//         this.quill.setSelection(null);
+    showOverlay = () => {
+        if (this.overlay) {
+            this.hideOverlay();
+        }
 
-//         // prevent spurious text selection
-//         this.setUserSelect('none');
+        this.quill.setSelection(null);
 
-//         // listen for the image being deleted or moved
-//         document.addEventListener('keyup', this.checkImage, true);
-//         this.quill.root.addEventListener('input', this.checkImage, true);
+        // prevent spurious text selection
+        this.setUserSelect('none');
 
-//         // Create and add the overlay
-//         this.overlay = document.createElement('div');
-//         Object.assign(this.overlay.style, this.options.overlayStyles);
+        // listen for the image being deleted or moved
+        document.addEventListener('keyup', this.checkImage, true);
+        this.quill.root.addEventListener('input', this.checkImage, true);
 
-//         this.quill.root.parentNode.appendChild(this.overlay);
+        // Create and add the overlay
+        this.overlay = document.createElement('div');
+        Object.assign(this.overlay.style, this.options.overlayStyles);
 
-//         this.repositionElements();
-//     };
+        this.quill.root.parentNode.appendChild(this.overlay);
 
-//     hideOverlay = () => {
-//         if (!this.overlay) {
-//             return;
-//         }
+        this.repositionElements();
+    };
 
-//         // Remove the overlay
-//         this.quill.root.parentNode.removeChild(this.overlay);
-//         this.overlay = undefined;
+    hideOverlay = () => {
+        if (!this.overlay) {
+            return;
+        }
 
-//         // stop listening for image deletion or movement
-//         document.removeEventListener('keyup', this.checkImage);
-//         this.quill.root.removeEventListener('input', this.checkImage);
+        // Remove the overlay
+        this.quill.root.parentNode.removeChild(this.overlay);
+        this.overlay = undefined;
 
-//         // reset user-select
-//         this.setUserSelect('');
-//     };
+        // stop listening for image deletion or movement
+        document.removeEventListener('keyup', this.checkImage);
+        this.quill.root.removeEventListener('input', this.checkImage);
 
-//     repositionElements = () => {
-//         if (!this.overlay || !this.img) {
-//             return;
-//         }
+        // reset user-select
+        this.setUserSelect('');
+    };
 
-//         // position the overlay over the image
-//         const parent = this.quill.root.parentNode;
-//         const imgRect = this.img.getBoundingClientRect();
-//         const containerRect = parent.getBoundingClientRect();
+    repositionElements = () => {
+        if (!this.overlay || !this.img) {
+            return;
+        }
 
-//         Object.assign(this.overlay.style, {
-//             left: `${imgRect.left - containerRect.left - 1 + parent.scrollLeft}px`,
-//             top: `${imgRect.top - containerRect.top + parent.scrollTop}px`,
-//             width: `${imgRect.width}px`,
-//             height: `${imgRect.height}px`,
-//         });
-//     };
+        // position the overlay over the image
+        const parent = this.quill.root.parentNode;
+        const imgRect = this.img.getBoundingClientRect();
+        const containerRect = parent.getBoundingClientRect();
 
-//     hide = () => {
-//         this.hideOverlay();
-//         this.removeModules();
-//         this.img = undefined;
-//     };
+        Object.assign(this.overlay.style, {
+            left: `${imgRect.left - containerRect.left - 1 + parent.scrollLeft}px`,
+            top: `${imgRect.top - containerRect.top + parent.scrollTop}px`,
+            width: `${imgRect.width}px`,
+            height: `${imgRect.height}px`,
+        });
+    };
 
-//     setUserSelect = (value) => {
-//         [
-//             'userSelect',
-//             'mozUserSelect',
-//             'webkitUserSelect',
-//             'msUserSelect',
-//         ].forEach((prop) => {
-//             // set on contenteditable element and <html>
-//             this.quill.root.style[prop] = value;
-//             document.documentElement.style[prop] = value;
-//         });
-//     };
+    hide = () => {
+        this.hideOverlay();
+        this.removeModules();
+        this.img = undefined;
+    };
 
-//     checkImage = (evt) => {
-//         if (this.img) {
-//             if (evt.keyCode == 46 || evt.keyCode == 8) {
-//                 window.Quill.find(this.img).deleteAt(0);
-//             }
-//             this.hide();
-//         }
-//     };
-// }
+    setUserSelect = (value) => {
+        [
+            'userSelect',
+            'mozUserSelect',
+            'webkitUserSelect',
+            'msUserSelect',
+        ].forEach((prop) => {
+            // set on contenteditable element and <html>
+            this.quill.root.style[prop] = value;
+            document.documentElement.style[prop] = value;
+        });
+    };
 
-// if (window.Quill) {
-//     console.log('register completed!')
-//     console.log('register completed!')
-//     console.log('register completed!')
-//     console.log('register completed!')
-//     console.log('register completed!')
-//     console.log('register completed!')
-//     console.log('register completed!')
-//     window.Quill.register('modules/imageResize', ImageResize);
-// }
+    checkImage = (evt) => {
+        if (this.img) {
+            if (evt.keyCode == 46 || evt.keyCode == 8) {
+                window.Quill.find(this.img).deleteAt(0);
+            }
+            this.hide();
+        }
+    };
+}
+
+if (window.Quill) {
+    window.Quill.register('modules/imageResize', ImageResize);
+}
