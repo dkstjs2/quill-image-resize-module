@@ -73,22 +73,25 @@ export default class ImageResize {
                 
                 var moduleInstance = new (knownModules[ModuleClass] || ModuleClass)(this)
 
-                moduleInstance.onChangedListener(function(styleName) {
-
-                    console.log('Toolbar')
-                    console.log('Toolbar')
-                    console.log('Toolbar')
-                    console.log('Toolbar')
-                    console.log('Toolbar')
-            
-                    console.log('styleName:', styleName)
+                if(moduleInstance instanceof Toolbar) {
                     
-                    console.log('Toolbar')
-                    console.log('Toolbar')
-                    console.log('Toolbar')
-                    console.log('Toolbar')
-                    console.log('Toolbar')
-                })
+                    moduleInstance.onChangedListener(function(styleName) {
+    
+                        console.log('Toolbar')
+                        console.log('Toolbar')
+                        console.log('Toolbar')
+                        console.log('Toolbar')
+                        console.log('Toolbar')
+                
+                        console.log('styleName:', styleName)
+                        
+                        console.log('Toolbar')
+                        console.log('Toolbar')
+                        console.log('Toolbar')
+                        console.log('Toolbar')
+                        console.log('Toolbar')
+                    })
+                }
 
                 return moduleInstance
             }
