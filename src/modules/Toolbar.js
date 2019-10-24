@@ -18,7 +18,10 @@ export class Toolbar extends BaseModule {
         // Setup Buttons
         this._defineAlignments();
         this._addToolbarButtons();
-        this.onChangedListener = () => {}
+        this.onChangedListener = (styleName) => {
+            
+            console.log('hello style!:', styleName)
+        }
     };
 
 	// The toolbar and its children will be destroyed when the overlay is removed
