@@ -31,7 +31,7 @@ export class Toolbar extends BaseModule {
             {
                 icon: IconAlignLeft,
                 apply: () => {
-                    this.onChangedListener('left')
+                    // this.onChangedListener('left')
                     DisplayStyle.add(this.img, 'inline');
                     FloatStyle.add(this.img, 'left');
                     MarginStyle.add(this.img, '0 1em 1em 0');
@@ -41,7 +41,7 @@ export class Toolbar extends BaseModule {
             {
                 icon: IconAlignCenter,
                 apply: () => {
-                    this.onChangedListener('block')
+                    // this.onChangedListener('block')
                     DisplayStyle.add(this.img, 'block');
                     FloatStyle.remove(this.img);
                     MarginStyle.add(this.img, 'auto');
@@ -51,7 +51,7 @@ export class Toolbar extends BaseModule {
             {
                 icon: IconAlignRight,
                 apply: () => {
-                    this.onChangedListener('right')
+                    // this.onChangedListener('right')
                     DisplayStyle.add(this.img, 'inline');
                     FloatStyle.add(this.img, 'right');
                     MarginStyle.add(this.img, '0 0 1em 1em');
