@@ -85,7 +85,7 @@ export default class ImageResize {
         this.onUpdate();
     };
 
-    setOnChangedListener(onChangedListener) {
+    static setOnChangedListener(onChangedListener) {
 
         this.onChangedListener = onChangedListener
     }
