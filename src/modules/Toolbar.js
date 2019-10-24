@@ -33,7 +33,7 @@ export class Toolbar extends BaseModule {
                 icon: IconAlignLeft,
                 apply: () => {
                     if(this.onChangedListener) {
-                        this.onChangedListener('left')
+                        this.onChangedListener(this.img, 'left')
                     }
                     DisplayStyle.add(this.img, 'inline');
                     FloatStyle.add(this.img, 'left');

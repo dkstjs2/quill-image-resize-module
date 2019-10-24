@@ -69,9 +69,9 @@ export default class ImageResize {
 
                 if(moduleInstance instanceof Toolbar) {
                     
-                    moduleInstance.onChangedListener(function(styleName) {
+                    moduleInstance.onChangedListener(function(image, styleName) {
 
-                        ImageResize.onChangedListener(styleName)
+                        ImageResize.onChangedListener(image, styleName)
                     })
                 }
 
