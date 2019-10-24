@@ -46,7 +46,10 @@ export default class ImageResize {
 
         this.modules = [];
 
-        this.onChangedListener = (styleName) => {}
+        // this.onChangedListener = (styleName) => {
+
+        //     console.log('styleName:', styleName)
+        // }
     }
 
     static getInstance() {
@@ -88,7 +91,7 @@ export default class ImageResize {
 
     static setOnChangedListener(onChangedListener) {
 
-        console.log('called setOnChangedListener')
+        console.log('called setOnChangedListener:', onChangedListener)
         this.onChangedListener = onChangedListener
     }
 
