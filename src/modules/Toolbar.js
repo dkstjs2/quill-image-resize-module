@@ -28,8 +28,6 @@ export class Toolbar extends BaseModule {
 
     _defineAlignments = () => {
 
-        console.log('_defineAlignments')
-        
         this.alignments = [
             {
                 icon: IconAlignLeft,

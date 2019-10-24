@@ -46,26 +46,12 @@ export default class ImageResize {
 
         this.modules = [];
 
-        // knownModules['Toolbar'].onChangedListener(function(styleName) {
-
-        //     console.log('Toolbar')
-        //     console.log('Toolbar')
-        //     console.log('Toolbar')
-        //     console.log('Toolbar')
-        //     console.log('Toolbar')
-    
-        //     console.log('styleName:', styleName)
-            
-        //     console.log('Toolbar')
-        //     console.log('Toolbar')
-        //     console.log('Toolbar')
-        //     console.log('Toolbar')
-        //     console.log('Toolbar')
-
-        // })
+        this.onChangedListener = (styleName) => {}
     }
 
     initializeModules = () => {
+        var thisObj = this
+
         this.removeModules();
 
         this.modules = this.moduleClasses.map(
@@ -76,20 +62,8 @@ export default class ImageResize {
                 if(moduleInstance instanceof Toolbar) {
                     
                     moduleInstance.onChangedListener(function(styleName) {
-    
-                        console.log('Toolbar')
-                        console.log('Toolbar')
-                        console.log('Toolbar')
-                        console.log('Toolbar')
-                        console.log('Toolbar')
-                
-                        console.log('styleName:', styleName)
-                        
-                        console.log('Toolbar')
-                        console.log('Toolbar')
-                        console.log('Toolbar')
-                        console.log('Toolbar')
-                        console.log('Toolbar')
+
+                        thisObj.onChangedListener(styleName)
                     })
                 }
 
@@ -105,6 +79,11 @@ export default class ImageResize {
 
         this.onUpdate();
     };
+
+    setOnChangedListener(onChangedListener) {
+
+        this.onChangedListener = onChangedListener
+    }
 
     onUpdate = () => {
         this.repositionElements();
