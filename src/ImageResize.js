@@ -46,30 +46,52 @@ export default class ImageResize {
 
         this.modules = [];
 
-        knownModules['Toolbar'].onChangedListener(function(styleName) {
+        // knownModules['Toolbar'].onChangedListener(function(styleName) {
 
-            console.log('Toolbar')
-            console.log('Toolbar')
-            console.log('Toolbar')
-            console.log('Toolbar')
-            console.log('Toolbar')
+        //     console.log('Toolbar')
+        //     console.log('Toolbar')
+        //     console.log('Toolbar')
+        //     console.log('Toolbar')
+        //     console.log('Toolbar')
     
-            console.log('styleName:', styleName)
+        //     console.log('styleName:', styleName)
             
-            console.log('Toolbar')
-            console.log('Toolbar')
-            console.log('Toolbar')
-            console.log('Toolbar')
-            console.log('Toolbar')
+        //     console.log('Toolbar')
+        //     console.log('Toolbar')
+        //     console.log('Toolbar')
+        //     console.log('Toolbar')
+        //     console.log('Toolbar')
 
-        })
+        // })
     }
 
     initializeModules = () => {
         this.removeModules();
 
         this.modules = this.moduleClasses.map(
-            ModuleClass => new (knownModules[ModuleClass] || ModuleClass)(this),
+            ModuleClass => {
+                
+                var moduleInstance = new (knownModules[ModuleClass] || ModuleClass)(this)
+
+                moduleInstance.onChangedListener(function(styleName) {
+
+                    console.log('Toolbar')
+                    console.log('Toolbar')
+                    console.log('Toolbar')
+                    console.log('Toolbar')
+                    console.log('Toolbar')
+            
+                    console.log('styleName:', styleName)
+                    
+                    console.log('Toolbar')
+                    console.log('Toolbar')
+                    console.log('Toolbar')
+                    console.log('Toolbar')
+                    console.log('Toolbar')
+                })
+
+                return moduleInstance
+            }
         );
 
         console.log('modules:', modules)
