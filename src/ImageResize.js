@@ -46,6 +46,20 @@ export default class ImageResize {
 
         this.modules = [];
 
+        console.log('Toolbar')
+        console.log('Toolbar')
+        console.log('Toolbar')
+        console.log('Toolbar')
+        console.log('Toolbar')
+
+        console.log(Toolbar)
+        
+        console.log('Toolbar')
+        console.log('Toolbar')
+        console.log('Toolbar')
+        console.log('Toolbar')
+        console.log('Toolbar')
+
         // Toolbar.onChangedListener(function(styleName) {
 
         //     console.log('styleName:', styleName);
