@@ -27,6 +27,9 @@ export class Toolbar extends BaseModule {
     onUpdate = () => {};
 
     _defineAlignments = () => {
+
+        console.log('_defineAlignments')
+        
         this.alignments = [
             {
                 icon: IconAlignLeft,
