@@ -68,7 +68,9 @@ export class Toolbar extends BaseModule {
 					// deselect all buttons
 				buttons.forEach(button => button.style.filter = '');
 				if (alignment.isApplied()) {
-						// If applied, unapply
+                        // If applied, unapply
+                        
+                    console.log('removed styles')
 					FloatStyle.remove(this.img);
 					MarginStyle.remove(this.img);
 					DisplayStyle.remove(this.img);

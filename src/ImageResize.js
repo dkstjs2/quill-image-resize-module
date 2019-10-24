@@ -15,14 +15,6 @@ export default class ImageResize {
 
     constructor(quill, options = {}) {
 
-        console.log("hell!")
-        console.log("hell!")
-        console.log("hell!")
-        console.log("hell!")
-        console.log("hell!")
-        console.log("hell!")
-        console.log("hell!")
-        console.log("hell!")
         // save the quill reference and options
         this.quill = quill;
 
