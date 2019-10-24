@@ -45,7 +45,7 @@ export class Toolbar extends BaseModule {
                 icon: IconAlignCenter,
                 apply: () => {
                     if(this.onChangedListener) {
-                        this.onChangedListener('block')
+                        this.onChangedListener(this.img, 'block')
                     }
                     DisplayStyle.add(this.img, 'block');
                     FloatStyle.remove(this.img);
@@ -57,7 +57,7 @@ export class Toolbar extends BaseModule {
                 icon: IconAlignRight,
                 apply: () => {
                     if(this.onChangedListener) {
-                        this.onChangedListener('right')
+                        this.onChangedListener(this.img, 'right')
                     }
                     DisplayStyle.add(this.img, 'inline');
                     FloatStyle.add(this.img, 'right');
