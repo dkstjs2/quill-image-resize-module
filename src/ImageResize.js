@@ -49,6 +49,11 @@ export default class ImageResize {
         this.onChangedListener = (styleName) => {}
     }
 
+    static getInstance() {
+
+        return this
+    }
+
     initializeModules = () => {
         var thisObj = this
 
