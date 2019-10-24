@@ -71,7 +71,6 @@ export default class ImageResize {
                     
                     moduleInstance.onChangedListener(function(styleName) {
 
-                        console.log(styleName+"2")
                         ImageResize.onChangedListener(styleName)
                     })
                 }
@@ -91,7 +90,6 @@ export default class ImageResize {
 
     static setOnChangedListener(onChangedListener) {
 
-        console.log('called setOnChangedListener:', onChangedListener)
         ImageResize.onChangedListener = onChangedListener
     }
 

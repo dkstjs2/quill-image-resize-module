@@ -33,7 +33,6 @@ export class Toolbar extends BaseModule {
                 icon: IconAlignLeft,
                 apply: () => {
                     if(this.onChangedListener) {
-                        console.log('left')
                         this.onChangedListener('left')
                     }
                     DisplayStyle.add(this.img, 'inline');
@@ -46,7 +45,6 @@ export class Toolbar extends BaseModule {
                 icon: IconAlignCenter,
                 apply: () => {
                     if(this.onChangedListener) {
-                        console.log('block')
                         this.onChangedListener('block')
                     }
                     DisplayStyle.add(this.img, 'block');
@@ -59,7 +57,6 @@ export class Toolbar extends BaseModule {
                 icon: IconAlignRight,
                 apply: () => {
                     if(this.onChangedListener) {
-                        console.log('right')
                         this.onChangedListener('right')
                     }
                     DisplayStyle.add(this.img, 'inline');
