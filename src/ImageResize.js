@@ -97,8 +97,6 @@ export default class ImageResize {
             }
         );
 
-        console.log('modules:', modules)
-
         this.modules.forEach(
             (module) => {
                 module.onCreate();
