@@ -92,7 +92,7 @@ export default class ImageResize {
     static setOnChangedListener(onChangedListener) {
 
         console.log('called setOnChangedListener:', onChangedListener)
-        this.onChangedListener = onChangedListener
+        ImageResize.onChangedListener = onChangedListener
     }
 
     onUpdate = () => {
