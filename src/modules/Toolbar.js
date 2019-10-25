@@ -32,36 +32,39 @@ export class Toolbar extends BaseModule {
             {
                 icon: IconAlignLeft,
                 apply: () => {
-                    if(this.onChangedListener) {
-                        this.onChangedListener(this.img, 'left')
-                    }
                     DisplayStyle.add(this.img, 'inline');
                     FloatStyle.add(this.img, 'left');
                     MarginStyle.add(this.img, '0 1em 1em 0');
+
+                    if(this.onChangedListener) {
+                        this.onChangedListener(this.img, 'left')
+                    }
                 },
                 isApplied: () => FloatStyle.value(this.img) == 'left',
             },
             {
                 icon: IconAlignCenter,
                 apply: () => {
-                    if(this.onChangedListener) {
-                        this.onChangedListener(this.img, 'block')
-                    }
                     DisplayStyle.add(this.img, 'block');
                     FloatStyle.remove(this.img);
                     MarginStyle.add(this.img, 'auto');
+
+                    if(this.onChangedListener) {
+                        this.onChangedListener(this.img, 'block')
+                    }
                 },
                 isApplied: () => MarginStyle.value(this.img) == 'auto',
             },
             {
                 icon: IconAlignRight,
                 apply: () => {
-                    if(this.onChangedListener) {
-                        this.onChangedListener(this.img, 'right')
-                    }
                     DisplayStyle.add(this.img, 'inline');
                     FloatStyle.add(this.img, 'right');
                     MarginStyle.add(this.img, '0 0 1em 1em');
+                    
+                    if(this.onChangedListener) {
+                        this.onChangedListener(this.img, 'right')
+                    }
                 },
                 isApplied: () => FloatStyle.value(this.img) == 'right',
             },
