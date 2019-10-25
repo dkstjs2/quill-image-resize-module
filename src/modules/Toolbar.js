@@ -27,6 +27,7 @@ export class Toolbar extends BaseModule {
     onUpdate = () => {};
 
     _defineAlignments = () => {
+        var thisObj = this
 
         this.alignments = [
             {
@@ -40,7 +41,7 @@ export class Toolbar extends BaseModule {
 
                         setTimeout(function() {
                             
-                            this.onChangedListener(this.img, 'left')
+                            thisObj.onChangedListener(this.img, 'left')
                         }, 1000)
                     }
                 },
@@ -57,7 +58,7 @@ export class Toolbar extends BaseModule {
 
                         setTimeout(function() {
 
-                            this.onChangedListener(this.img, 'block')
+                            thisObj.onChangedListener(this.img, 'block')
                         }, 1000)
                     }
                 },
@@ -74,7 +75,7 @@ export class Toolbar extends BaseModule {
 
                         setTimeout(function() {
                             
-                            this.onChangedListener(this.img, 'right')
+                            thisObj.onChangedListener(this.img, 'right')
                         }, 1000)
                     }
                 },
