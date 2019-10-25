@@ -42,7 +42,7 @@ export class Toolbar extends BaseModule {
                         setTimeout(function() {
                             
                             thisObj.onChangedListener(thisObj.img, 'left')
-                        }, 1000)
+                        }, 100)
                     }
                 },
                 isApplied: () => FloatStyle.value(this.img) == 'left',
@@ -59,7 +59,7 @@ export class Toolbar extends BaseModule {
                         setTimeout(function() {
 
                             thisObj.onChangedListener(thisObj.img, 'block')
-                        }, 1000)
+                        }, 100)
                     }
                 },
                 isApplied: () => MarginStyle.value(this.img) == 'auto',
@@ -76,7 +76,7 @@ export class Toolbar extends BaseModule {
                         setTimeout(function() {
                             
                             thisObj.onChangedListener(thisObj.img, 'right')
-                        }, 1000)
+                        }, 100)
                     }
                 },
                 isApplied: () => FloatStyle.value(this.img) == 'right',
