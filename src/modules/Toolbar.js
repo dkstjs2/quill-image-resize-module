@@ -37,7 +37,11 @@ export class Toolbar extends BaseModule {
                     MarginStyle.add(this.img, '0 1em 1em 0');
 
                     if(this.onChangedListener) {
-                        this.onChangedListener(this.img, 'left')
+
+                        setTimeout(function() {
+                            
+                            this.onChangedListener(this.img, 'left')
+                        }, 1000)
                     }
                 },
                 isApplied: () => FloatStyle.value(this.img) == 'left',
@@ -50,7 +54,11 @@ export class Toolbar extends BaseModule {
                     MarginStyle.add(this.img, 'auto');
 
                     if(this.onChangedListener) {
-                        this.onChangedListener(this.img, 'block')
+
+                        setTimeout(function() {
+
+                            this.onChangedListener(this.img, 'block')
+                        }, 1000)
                     }
                 },
                 isApplied: () => MarginStyle.value(this.img) == 'auto',
@@ -61,9 +69,13 @@ export class Toolbar extends BaseModule {
                     DisplayStyle.add(this.img, 'inline');
                     FloatStyle.add(this.img, 'right');
                     MarginStyle.add(this.img, '0 0 1em 1em');
-                    
+
                     if(this.onChangedListener) {
-                        this.onChangedListener(this.img, 'right')
+
+                        setTimeout(function() {
+                            
+                            this.onChangedListener(this.img, 'right')
+                        }, 1000)
                     }
                 },
                 isApplied: () => FloatStyle.value(this.img) == 'right',
