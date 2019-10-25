@@ -41,7 +41,7 @@ export class Toolbar extends BaseModule {
 
                         setTimeout(function() {
                             
-                            thisObj.onChangedListener(this.img, 'left')
+                            thisObj.onChangedListener(thisObj.img, 'left')
                         }, 1000)
                     }
                 },
@@ -58,7 +58,7 @@ export class Toolbar extends BaseModule {
 
                         setTimeout(function() {
 
-                            thisObj.onChangedListener(this.img, 'block')
+                            thisObj.onChangedListener(thisObj.img, 'block')
                         }, 1000)
                     }
                 },
@@ -75,7 +75,7 @@ export class Toolbar extends BaseModule {
 
                         setTimeout(function() {
                             
-                            thisObj.onChangedListener(this.img, 'right')
+                            thisObj.onChangedListener(thisObj.img, 'right')
                         }, 1000)
                     }
                 },
